@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  nome String
+  email String @unique
+  password String
+  Imobi Imobi[]
+  @@map("users")
+}
+
+model Imobi{
+  id Int @id @default(autoincrement())
+  tipo String?
+  thumb String?
+  endereco String?
+  cidade String?
+  uf String?
+  valor String?
+  descricao String?
+  slug String
+
+  created_at DateTime @default(now())
+  userID Int 
+  author User @relation(fields: [userID],references: [id])
+  @@map("imoveis")
+}
