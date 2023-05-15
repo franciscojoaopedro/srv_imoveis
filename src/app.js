@@ -6,7 +6,7 @@ import { routerImobi } from "./routes/routerImobi";
 import path from 'node:path'
 import { env } from "node:process";
 
-
+require ('dotenv').config()
 const app=express();
 const PORT= process.env.PORT || 8000;
 
