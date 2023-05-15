@@ -61,5 +61,18 @@ export default{
         } catch (error) {
             return response.json({message:error.message})
         }
-    }
+    },
+    async findImovel(request,response){
+        try {
+            const {id}=request.params;
+            const imovel= await prisma.imobi.findUnique({where:{id:Number(id)}});
+            if(!imovel){
+                return response.json({message:"Não encontramos nenhum o imovel cadastro"});
+            }
+            console.log(imovel)
+            return response.json({error:false,messege:"imovel",imovel})
+        } catch (error) {
+            return response.json({message:error.message})
+        }
+    },
 }

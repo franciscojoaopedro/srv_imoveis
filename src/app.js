@@ -4,10 +4,11 @@ import { routerUser } from "./routes/routerUser";
 import { routerSession } from "./routes/routerSession";
 import { routerImobi } from "./routes/routerImobi";
 import path from 'node:path'
+import { env } from "node:process";
 
 
 const app=express();
-const PORT=8000;
+const PORT= env.PORT || 8000;
 
 app.use(express.json())
 // para salvar imagens
