@@ -1,6 +1,8 @@
-import { hash } from "bcrypt";
-import { prisma } from "../helpers/prisma";
-export default{
+const   hash =require( "bcrypt");
+const   prisma  = require ("../helpers/prisma");
+ 
+
+module.exports={
     async createUser(request,response){
         try {
             const {nome,email,password}=request.body;

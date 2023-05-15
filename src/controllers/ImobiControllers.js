@@ -1,7 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient }= require ("@prisma/client");
 
 const prisma=new PrismaClient()
-export default{
+module.exports= {
     async createImobi(request,response){
         try {
             const thumb=request.file.filename;

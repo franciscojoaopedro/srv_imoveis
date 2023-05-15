@@ -1,7 +1,7 @@
-import { compare, hash } from "bcrypt";
-import { prisma } from "../helpers/prisma";
-import jwt  from "jsonwebtoken";
-export default{
+const  {compare} = require ("bcrypt");
+const  prisma  = require ("../helpers/prisma");
+const jwt  =require ("jsonwebtoken");
+module.exports={
     async createSession(request,response){
         try {
             const {email,password}=request.body;

@@ -1,5 +1,5 @@
-import jwt  from "jsonwebtoken";
-export default function auth(request,response,next){
+const jwt = require ("jsonwebtoken");
+function auth(request,response,next){
     const {authorization}=request.headers;
     if(!authorization){
         response.json({message:"Usuario não autorizado"},401);
@@ -15,3 +15,5 @@ export default function auth(request,response,next){
     }
 
 }
+
+module.exports=auth;

@@ -1,8 +1,10 @@
-import {Router} from "express"
-import UserControllers from "../controllers/UserControllers";
-import auth from "../middlewares/auth";
+const express =require ('express');
+const UserControllers =require ( "../controllers/UserControllers");
+const auth= require  ("../middlewares/auth");
 
-const routerUser=Router();
+const routerUser=express.Router();
+
 routerUser.post('/createusers',UserControllers.createUser);
 routerUser.get('/listUsers', auth,UserControllers.findAllUser);
-export {routerUser}
+
+module.exports= routerUser;

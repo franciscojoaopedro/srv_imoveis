@@ -1,9 +1,9 @@
-import { Router } from "express";
-import SessionControllers from "../controllers/SessionControllers";
+const express =require ('express');
+const SessionControllers =require ("../controllers/SessionControllers");
 
-const routerSession=Router();
+const routerSession=express.Router();
 
 
 routerSession.post("/session",SessionControllers.createSession);
 
-export{routerSession}
+module.exports=routerSession

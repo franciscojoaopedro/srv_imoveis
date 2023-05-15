@@ -1,19 +1,20 @@
-import express from "express";
-import cors from "cors"
-import { routerUser } from "./routes/routerUser";
-import { routerSession } from "./routes/routerSession";
-import { routerImobi } from "./routes/routerImobi";
-import path from 'node:path'
-import { env } from "node:process";
+const express =require ('express');
+
+const cors = require("cors") 
+const  routerUser = require("./src/routes/routerUser") ;
+const routerSession = require("./src/routes/routerSession") ;
+const  routerImobi = require("./src/routes/routerImobi") ;
+const path =require('node:path') 
+
 
 require ('dotenv').config()
 const app=express();
 const PORT= process.env.PORT || 8000;
 
+app.use(cors());
 app.use(express.json())
 // para salvar imagens
 app.use("/uploads",express.static(path.resolve(__dirname,'../','uploads')))
-app.use(cors());
 
 
 app.use(routerUser);

@@ -1,5 +1,5 @@
-import multer from "multer";
-import uploadConfig from "../middlewares/upload";
+const  multer =require ("multer");
+const  uploadConfig =require( "../middlewares/upload");
 
 const upload=multer(uploadConfig);
-export{upload}
+module.exports=upload
