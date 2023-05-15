@@ -8,7 +8,7 @@ import { env } from "node:process";
 
 
 const app=express();
-const PORT= env.PORT || 8000;
+const PORT= process.env.PORT || 8000;
 
 app.use(express.json())
 // para salvar imagens
