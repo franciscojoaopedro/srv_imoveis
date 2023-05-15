@@ -1,4 +1,4 @@
-const   hash =require( "bcrypt");
+const   bcrypt =require( "bcrypt");
 const   prisma  = require ("../helpers/prisma");
  
 
@@ -10,7 +10,7 @@ module.exports={
             if(user){
                return response.json({error:true, message:"Usuário já existe"});
             }
-            const HashPassword= await hash(password,8);
+            const HashPassword= await bcrypt.hash(password,8);
             user=await prisma.user.create({
                 data:{
                     nome,
