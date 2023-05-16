@@ -1,6 +1,7 @@
 const express =require ('express');
 const ImobiControllers = require( "../controllers/ImobiControllers");
-const  upload  =require ("./routerUpload");
+const  upload  =require("./routerUpload");
+
 
 const routerImobi=express.Router();
 
