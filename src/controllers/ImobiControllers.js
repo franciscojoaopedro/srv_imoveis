@@ -81,7 +81,7 @@ module.exports= {
             const imovel= await prisma.imobi.findMany({
                 where:{
                     tipo:{
-                    contains:pesquisar.toString(),
+                    contains:pesquisar.toString()
                     //mode:"insensitive"
                     }
                 },
