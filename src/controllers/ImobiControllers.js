@@ -75,4 +75,26 @@ module.exports= {
             return response.json({message:error.message})
         }
     },
+    async findImovelSearch(request,response){
+        try {
+            const {pesquisar,take}=request.query;
+            const imovel= await prisma.imobi.findMany({
+                where:{
+                    tipo:{
+                    contains:pesquisar.toString(),
+                    //mode:"insensitive"
+                    }
+                },
+        });
+            return  response.json({imovel});
+           /* if(!imovel){
+                return response.json({message:"Não encontramos nenhum o imovel cadastro"});
+            }
+            console.log(imovel)
+            return response.json({error:false,messege:"imovel",imovel})
+            */
+        } catch (error) {
+            return response.json({message:error.message})
+        }
+    },
 }

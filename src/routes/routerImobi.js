@@ -8,6 +8,7 @@ const routerImobi=express.Router();
 routerImobi.post("/createimobi", upload.single("thumb"),ImobiControllers.createImobi);
 routerImobi.get("/findallimobis",ImobiControllers.findAllImobi);
 routerImobi.get("/findimobi/:slug",ImobiControllers.findImobi);
+routerImobi.get("/pesquisar",ImobiControllers.findImovelSearch);
 routerImobi.get("/imobi/:id",ImobiControllers.findImovel);
 
 module.exports= routerImobi
