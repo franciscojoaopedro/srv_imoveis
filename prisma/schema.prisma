@@ -30,7 +30,6 @@ model Imobi{
   valor String?
   descricao String?
   slug String
-
   created_at DateTime @default(now())
   userID Int 
   author User @relation(fields: [userID],references: [id])
