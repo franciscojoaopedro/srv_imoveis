@@ -6,13 +6,14 @@ generator client {
 
 
 datasource db {
- provider = "mysql"
+ provider = "mongodb"
   url      =  env("DATABASE_URL")
 }
 
 
 model User{
-  id Int @id @default(autoincrement())
+  //id Int @id @default(autoincrement())
+id     String @id @default(auto()) @map("_id") @db.ObjectId
   nome String
   email String @unique
   password String
@@ -21,7 +22,8 @@ model User{
 }
 
 model Imobi{
-  id Int @id @default(autoincrement())
+  //id Int @id @default(autoincrement())
+ id     String @id @default(auto()) @map("_id") @db.ObjectId
   tipo String?
   thumb String?
   endereco String?
@@ -31,7 +33,7 @@ model Imobi{
   descricao String?
   slug String
   created_at DateTime @default(now())
-  userID Int 
+  userID  String @db.ObjectId
   author User @relation(fields: [userID],references: [id])
   @@map("imoveis")
 }
