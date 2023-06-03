@@ -4,7 +4,8 @@ const cors = require("cors")
 const  routerUser = require("./src/routes/routerUser") ;
 const routerSession = require("./src/routes/routerSession") ;
 const  routerImobi = require("./src/routes/routerImobi") ;
-const path =require('node:path') 
+const path =require("path");
+
 
 
 require ('dotenv').config()
