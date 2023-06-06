@@ -1,10 +1,12 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Model 
+// Developer- Ngunga Dev
+// Name - Francisco João Pedro 
 
 
 generator client {
   provider = "prisma-client-js"
- 
 }
 datasource db {
   provider = "postgresql"
@@ -19,7 +21,6 @@ model User{
   Imobi Imobi[]
   @@map("users")
 }
-
 model Imobi{
   id Int @id @default(autoincrement())
   tipo String?
@@ -29,7 +30,7 @@ model Imobi{
   uf String?
   valor String?
   descricao String?
-  slug String
+  slug String?
   created_at DateTime @default(now())
   userID  Int 
   author User? @relation(fields: [userID],references: [id])
