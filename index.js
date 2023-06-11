@@ -13,7 +13,7 @@ const PORT= process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json())
 // para salvar imagens
-app.use("/uploads",express.static(path.resolve(__dirname,'./','uploads')))
+app.use("/uploads",express.static(path.resolve(__dirname,"./","uploads")))
 
 app.use(routerUser);
 app.use(routerSession);
