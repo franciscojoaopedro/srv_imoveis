@@ -24,10 +24,20 @@ module.exports={
             return response.json({ error:true, message:`${error}`})
         }
     },
+    
     async findAllUser(request,response){
         try {
             const user=await prisma.user.findMany()
             return response.json(user);
+        } catch (error) {
+            return response.json({message:error.message})
+        }
+    },
+    async User(request,response){
+        try {
+            const {id}=request.params;
+            const user=await prisma.user.findUnique({where:{id:Number(id)}});
+            return response.json(user); 
         } catch (error) {
             return response.json({message:error.message})
         }
