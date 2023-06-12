@@ -37,7 +37,8 @@ module.exports={
         try {
             const {id}=request.params;
             const user=await prisma.user.findUnique({where:{id:Number(id)}});
-            return response.json(user); 
+            const {nome,email}=user
+            return response.json({nome,email,contacto:"937489012",}); 
         } catch (error) {
             return response.json({message:error.message})
         }
