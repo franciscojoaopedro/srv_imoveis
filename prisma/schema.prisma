@@ -10,7 +10,7 @@ generator client {
 }
 datasource db {
   provider = "mysql"
-  url = env("MYSQL_URL") // uses connection pooling
+  url = env("DATABASE_URL") // uses connection pooling
 }
 model User{
   id Int @id @default(autoincrement())

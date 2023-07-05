@@ -37,7 +37,7 @@ module.exports={
     async User(request,response){
         try {
             const {id}=request.params;
-            const user=await prisma.user.findFirst({where:{id:Number(id)}});
+            const user=await prisma.user.findUnique({where:{id:Number(id)}});
             const {nome,email,contacto}=user
             return response.json({nome,email,contacto}); 
         } catch (error) {
