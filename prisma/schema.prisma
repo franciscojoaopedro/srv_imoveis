@@ -9,15 +9,15 @@ generator client {
   provider = "prisma-client-js"
 }
 datasource db {
-  provider = "postgresql"
-  url = env("DATABASE_URL") // uses connection pooling
+  provider = "mysql"
+  url = env("MYSQL_URL") // uses connection pooling
 }
-
 model User{
   id Int @id @default(autoincrement())
   nome String
   email String @unique
   password String
+  contacto String
   Imobi Imobi[]
   @@map("users")
 }

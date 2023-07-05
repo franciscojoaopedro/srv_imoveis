@@ -5,7 +5,7 @@ const   prisma  = require ("../helpers/prisma");
 module.exports={
     async createUser(request,response){
         try {
-            const {nome,email,password}=request.body;
+            const {nome,email,password,contacto}=request.body;
             let user= await prisma.user.findUnique({where:{email}});
             if(user){
                return response.json({error:true, message:"Usuário já existe"});
@@ -15,6 +15,7 @@ module.exports={
                 data:{
                     nome,
                     email,
+                    contacto,
                     password:HashPassword
                 }
             })
@@ -36,9 +37,9 @@ module.exports={
     async User(request,response){
         try {
             const {id}=request.params;
-            const user=await prisma.user.findUnique({where:{id:Number(id)}});
-            const {nome,email}=user
-            return response.json({nome,email,contacto:"937489012",}); 
+            const user=await prisma.user.findFirst({where:{id:Number(id)}});
+            const {nome,email,contacto}=user
+            return response.json({nome,email,contacto}); 
         } catch (error) {
             return response.json({message:error.message})
         }
